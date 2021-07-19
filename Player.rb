@@ -1,15 +1,15 @@
 class Player
 
-  attr_accessor :name :short_name :score
+  attr_reader :name :short_name :lives
 
   def initialize (num)
     @name = "Player #{num}"
     @short_name = "P#{num}"
-    @score = 3
+    @lives = 3
   end
 
-  def reduce
+  def score
     @score -= 1
   end
-  
+
 end
