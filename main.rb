@@ -1,4 +1,4 @@
-require Player from '/Player'
-require Game from '/Game'
-
+require './Player'
+require './Game'
+require './Question'
 

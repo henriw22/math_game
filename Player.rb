@@ -1,6 +1,6 @@
 class Player
 
-  attr_reader :name :short_name :lives
+  attr_reader :name, :short_name, :lives
 
   def initialize (num)
     @name = "Player #{num}"
@@ -9,7 +9,7 @@ class Player
   end
 
   def score
-    @score -= 1
+    @lives -= 1
   end
 
 end

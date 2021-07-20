@@ -1,36 +1,29 @@
-require './Player'
 
 class Game
-  attr_reader :player, :turn, :game_over :questions
+  attr_reader :player, :turn, :game_over
 
   def initialize (players)
     @players = players
     @turn= @players[0]
     @game_over = false
-    num1 = (1..20).to_a.sample
-    num2 = (1..20).to_a.sample
-    @answer = num1 + num2
-    @question = "What does #{num1} plus #{num2} equal?"
   end
 
-  def check_answer?(answer)
-    answer == @answer
+  def switch_turn
+    if turn == player[0] then turn = player [1]
+    else turn = player[0]
+    end
   end
 
-  def switch_player
-    if turn_player = 0
-      @turn_player = 1
-    else turn_player = 0
+  def game_over?
+    @players.each {|player|
+    if player.lives == 0 then @game_over = true
+    end
+    @game_over
+    }
   end
 
-  def player_alive
-    if @players[@turn_player].lives == 0
-      false
+  def final_score
+    puts "#{@players[0].short_name}: #{@players[0].lives}/3 vs #{@players[1].short_name}: #{@players[1].lives}/3"
   end
-
-  start_game
-  end_game
-  
 
 end
-
